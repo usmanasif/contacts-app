@@ -6,7 +6,7 @@ ruby '2.2.0'
 # Back end
 gem 'rails', '4.2.1'
 gem 'sqlite3'
-
+gem 'devise'
 
 # Front End
 gem 'sass-rails', '~> 5.0'
