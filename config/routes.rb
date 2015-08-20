@@ -4,11 +4,14 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     authenticated :user do
-      root 'rails/welcome#index', as: :root
+      root 'contacts#index', as: :root
     end
 
     unauthenticated do
       root 'devise/sessions#new', as: :unauthenticated_root
     end
   end
+
+
+  resources :contacts, except: [:edit]
 end

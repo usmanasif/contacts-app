@@ -1,0 +1,43 @@
+= form_for contact, class: 'form' do |f|
+  .col-md-6
+    .field
+      .form-group.col-md-4
+        = f.label :first_name
+      .form-group.col-md-6
+        = f.text_field :first_name, class: 'form-control'
+
+    .field
+      .form-group.col-md-4
+        = f.label :last_name
+      .form-group.col-md-6
+        = f.text_field :last_name, class: 'form-control'
+
+    .field
+      .form-group.col-md-4
+        = f.label :email
+      .form-group.col-md-6
+        = f.email_field :email, class: 'form-control'
+
+  .col-md-6
+    .field
+      .form-group.col-md-4
+        = f.label :phone
+      .form-group.col-md-6
+        = f.text_field :phone, class: 'form-control'
+
+
+    .field
+      .form-group.col-md-4
+        = f.label :company
+      .form-group.col-md-6
+        = f.text_field :company, class: 'form-control'
+
+
+    .field
+      .form-group.col-md-4
+        = f.label :image
+      .form-group.col-md-6
+        = f.file_field :image, class: 'form-control'
+
+  .field
+    = f.submit class: 'btn btn-md btn-primary'

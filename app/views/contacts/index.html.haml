@@ -1,0 +1,30 @@
+%h3 My Contacts
+
+.col-md-12
+  %table.table.table-striped
+    %thead.bg-primary
+      %tr
+        %th Id
+        %th First Name
+        %th Last Name
+        %th Phone
+        %th Action
+
+    %tbody
+      - @contacts.each do |contact|
+        - next if contact.id.blank?
+        %tr
+          %td= contact.id
+          %td= contact.first_name
+          %td= contact.last_name
+          %td= contact.phone
+          %td
+            %em.text-muted N/A
+
+%hr.col-md-12
+
+.col-md-12
+  .well.col-md-12
+    %h3 Add Contact
+
+    = render partial: 'contacts/form', locals: {contact: @contact}
