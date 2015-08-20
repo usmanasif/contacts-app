@@ -1,4 +1,4 @@
-!!! 5
+!!!5
 %html{lang: 'en'}
   = render partial: 'layouts/partials/head'
 
@@ -9,6 +9,9 @@
       .row
         .col-lg-12
           = bootstrap_flash
+
+      .row
+        .col-md-6.col-md-offset-3.well.text-center
           = yield
 
       = render partial: 'layouts/partials/footer'

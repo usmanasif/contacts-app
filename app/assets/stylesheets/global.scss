@@ -1,0 +1,15 @@
+.field {
+  width: 100%;
+  display: inline-block;
+}
+
+#error_explanation {
+  text-align: left;
+
+  h2 {
+    font-size: 0.9em;
+    color: red;
+  }
+
+  padding-bottom: 8px;
+}
