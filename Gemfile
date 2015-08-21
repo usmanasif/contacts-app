@@ -10,6 +10,7 @@ gem 'devise'
 gem 'carrierwave'
 
 gem 'phony_rails'
+gem 'figaro'
 
 # Front End
 gem 'sass-rails', '~> 5.0'
