@@ -25,6 +25,7 @@ private
         contact.email,
         contact.phone,
         contact.company,
+        render(partial: 'contacts/contact_groups.html', locals: {contact: contact}),
         render(partial: 'contacts/contact_actions.html', locals: {contact: contact})
       ]
     end
@@ -37,7 +38,7 @@ private
 
 
   def fetch_contacts
-    contacts = current_user.contacts.order("#{sort_column} #{sort_direction}")
+    contacts = current_user.contacts.includes(:groups).order("#{sort_column} #{sort_direction}")
     contacts = contacts.page(page).per_page(per_page)
 
     if params[:sSearch].present?

@@ -1,0 +1,3 @@
+- links = contact.groups.map {|group| link_to group.name, edit_group_path(group)}
+
+= links.join(', ').html_safe
