@@ -9,9 +9,15 @@ class ContactsController < ApplicationController
 
 
   def create
-    current_user.contacts.create!(contact_params)
+    @contact = current_user.contacts.create(contact_params)
 
-    redirect_to :back, flash: {success: 'Contact created!'}
+    if @contact.errors.any?
+      @contacts = current_user.contacts
+      render :index
+
+    else
+      redirect_to :back, flash: {success: 'Contact created!'}
+    end
   end
 
 

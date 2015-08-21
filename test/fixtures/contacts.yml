@@ -1,0 +1,6 @@
+john:
+  first_name: John
+  last_name: Doe
+  phone: +15417543010
+  email: john.doe@example.com
+  company: ACME Inc.
