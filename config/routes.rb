@@ -13,5 +13,5 @@ Rails.application.routes.draw do
   end
 
 
-  resources :contacts, except: [:edit]
+  resources :contacts, except: [:show]
 end

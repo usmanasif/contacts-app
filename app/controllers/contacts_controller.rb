@@ -3,8 +3,17 @@ class ContactsController < ApplicationController
 
 
   def index
-    @contacts = current_user.contacts
-    @contact = current_user.contacts.build
+
+    respond_to do |format|
+      format.html do
+        @contacts = current_user.contacts
+        @contact = current_user.contacts.build
+      end
+
+      format.json do
+        render json: ContactsDatatable.new(view_context)
+      end
+    end
   end
 
 
@@ -20,6 +29,32 @@ class ContactsController < ApplicationController
     end
   end
 
+
+  def edit
+    @contact = current_user.contacts.find params[:id]
+  end
+
+
+  def update
+    @contact = current_user.contacts.find params[:id]
+
+    @contact.update contact_params
+
+    if @contact.errors.any?
+      render :edit
+
+    else
+      redirect_to :back, flash: {success: 'Contact updated!'}
+    end
+  end
+
+
+  def destroy
+    contact = current_user.contacts.find params[:id]
+    contact.destroy!
+
+    redirect_to :back, flash: {success: 'Contact deleted!'}
+  end
 
 private
   def contact_params

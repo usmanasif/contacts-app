@@ -17,6 +17,8 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'haml-rails'
 gem 'twitter-bootstrap-rails'
+gem 'jquery-datatables-rails', '~> 3.3.0'
+gem 'will_paginate'
 
 
 group :development, :test do

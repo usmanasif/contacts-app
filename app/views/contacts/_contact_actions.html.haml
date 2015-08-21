@@ -1,0 +1,6 @@
+= link_to edit_contact_path(contact), class: 'btn btn-xs btn-info', title: 'Edit' do
+  %i.fa.fa-edit
+
+= link_to contact_path(contact), method: :delete, class: 'btn btn-xs btn-danger', |
+    title: 'Delete', data: {confirm: 'Are you sure?'} do
+  %i.fa.fa-trash-o
