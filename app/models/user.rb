@@ -3,4 +3,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :validatable
 
   has_many :contacts
+  has_many :groups
 end
