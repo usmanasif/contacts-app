@@ -8,8 +8,12 @@
 
     .navbar-collapse.collapse.navbar-responsive-collapse
       %ul.nav.navbar-nav
-        %li
-          = link_to 'Home', root_path
+        - if user_signed_in?
+          %li
+            = link_to 'Contacts', root_path
+
+          %li
+            = link_to 'Groups', groups_path
 
       - if user_signed_in?
         %ul.nav.navbar-nav.navbar-right

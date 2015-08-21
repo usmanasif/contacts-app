@@ -1,0 +1,10 @@
+= form_for group, class: 'form' do |f|
+  .field
+    .form-group.col-md-4
+      = f.label :name
+    .form-group.col-md-6
+      = f.text_field :name, class: 'form-control', required: true
+
+
+  .field
+    = f.submit class: 'btn btn-sm btn-primary'

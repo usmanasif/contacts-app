@@ -1,0 +1,6 @@
+.col-md-12.well
+  %h3
+    Edit group:
+    = @group.name
+
+  = render partial: 'groups/form', locals: {group: @group}

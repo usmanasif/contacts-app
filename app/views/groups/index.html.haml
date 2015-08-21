@@ -1,0 +1,30 @@
+%table.table.table-striped
+  %thead.bg-primary
+    %tr
+      %td Group Name
+      %td Actions
+
+  %tbody
+    - @groups.each do |group|
+      - next if group.id.blank?
+
+      %tr
+        %td= group.name
+
+        %td
+          = link_to edit_group_path(group), class: 'btn btn-xs btn-info' do
+            %i.fa.fa-edit
+
+          = link_to group_path(group), class: 'btn btn-xs btn-danger', |
+              method: :delete, data: {confirm: 'Are you sure?'} do
+
+            %i.fa.fa-trash-o
+
+
+%hr.col-md-12
+
+
+.col-md-5.well
+  %h4 Create group
+
+  = render partial: 'groups/form', locals: {group: @group}

@@ -14,4 +14,5 @@ Rails.application.routes.draw do
 
 
   resources :contacts, except: [:show]
+  resources :groups, except: [:show]
 end
