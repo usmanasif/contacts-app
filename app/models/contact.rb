@@ -6,4 +6,6 @@ class Contact < ActiveRecord::Base
 
   validates :phone, phony_plausible: true
   phony_normalize :phone, default_country_code: 'US'
+
+  mount_uploader :image, ImageUploader
 end

@@ -7,6 +7,7 @@ ruby '2.2.0'
 gem 'rails', '4.2.1'
 gem 'sqlite3'
 gem 'devise'
+gem 'carrierwave'
 
 gem 'phony_rails'
 

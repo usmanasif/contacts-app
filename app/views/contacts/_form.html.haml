@@ -47,7 +47,22 @@
       .form-group.col-md-4
         = f.label :image
       .form-group.col-md-6
-        = f.file_field :image, class: 'form-control'
+        = f.file_field :image,  accept: '.gif, .jpeg, .jpg, .png', class: 'form-control'
+
+  - if contact.id.present?
+    .col-md-6
+      .field
+        .form-group.col-md-4
+          = label_tag do
+            Current Image
+
+        .form-group.col-md-6
+          - if contact.image.present?
+            .img-thumb{style: "background-image: url(#{contact.image_url})"}
+
+          - else
+            .img-thumb
+              %i.fa.fa-2x.fa-user
 
   .field
     %em.text-muted Fields marked with * are required
