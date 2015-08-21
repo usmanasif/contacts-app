@@ -4,3 +4,51 @@
     = @group.name
 
   = render partial: 'groups/form', locals: {group: @group}
+
+
+.col-md-6
+  .well.col-md-12
+    %h3 Current contacts in group
+
+    = form_for @group, class: 'form' do |f|
+      - if @group_contacts.size == 0
+        %p.text-muted No contacts are available to be removed
+
+      - @group_contacts.each do |group_contact|
+        - contact = group_contact.contact
+        .col-md-6
+          .img-thumb{style: "background-image: url(#{contact.image_url});"}
+          = contact.name
+          .checkbox
+            = hidden_field_tag 'group[contacts_groups_attributes][][id]', group_contact.id
+
+            = label_tag nil do
+              = check_box_tag 'group[contacts_groups_attributes][][_destroy]', true
+              Remove
+
+      .field
+        %br
+        = f.submit 'Remove selected', class: 'btn btn-sm btn-primary'
+
+
+.col-md-6
+  .well.col-md-12
+    %h3 Add contacts in group
+
+    = form_for @group, class: 'form' do |f|
+      - if @contacts.size == 0
+        %p.text-muted No contacts are available to be added
+
+      - @contacts.each do |contact|
+        .col-md-6
+          .img-thumb{style: "background-image: url(#{contact.image_url});"}
+          = contact.name
+          .checkbox
+            = label_tag nil do
+              = check_box_tag 'group[contacts_groups_attributes][][contact_id]', contact.id
+              Add
+
+      .field
+        %br
+        = f.submit 'Add selected', class: 'btn btn-sm btn-primary'
+
